@@ -46,8 +46,8 @@ text_chunks = text_splitter.split_text(text)
 
 embeddings = OpenAIEmbeddings()
 
-docsearch = FAISS.from_texts(text_chunks, embeddings)
-# print(docsearch)
+vector_text = FAISS.from_texts(text_chunks, embeddings)
+# print(vector_text)
 
 llm = OpenAI()
 chain = load_qa_chain(llm, chain_type="stuff")
@@ -72,6 +72,6 @@ chain = load_qa_chain(llm, chain_type="stuff")
 question = input("Enter your question: \n")
 
 
-docs = docsearch.similarity_search(question)
+docs = vector_text.similarity_search(question)
 response = chain.run(input_documents=docs, question=question)
 print(response)
