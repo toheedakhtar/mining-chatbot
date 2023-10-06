@@ -8,28 +8,34 @@
     font-family: sans-serif;
 }
 :root{
-    --text-color: #e4e4e4;
+    --text-color: white;
     --icon-color: rgb(32, 32, 32);
     --icon-hover-bg: rgb(57, 57, 57);
     --placeholder-color: rgb(14, 14, 14);
     --chat-color: rgb(3, 3, 3);
-    --incoming-chat-bg: rgb(204, 204, 204); 
+    --incoming-chat-bg: rgb(255, 255, 255); 
     /* --outgoing-chat-bg: #959595; */
     /* --outgoing-chat-border: rgb(0, 0, 0);
     --incoming-chat-border: grey;
     */
 }
 body{
-    background: rgba(255, 255, 255, 0.763);
+    /* background: rgba(255, 255, 255, 0.763); */
     /* overflow: hidden; */
- } 
+    background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
 #nav{
     height: 50px;
     display: flex;
     justify-content:end;
     align-items: center;
     background-color:rgb(4, 74, 179);
-    color: #e4e4e4;
+    color: white;
     padding: 0px 20px;
     margin-bottom: 10px;
     box-shadow: 1px 1px 10px 1px rgba(41, 41, 41, 0.425);
@@ -41,7 +47,7 @@ body{
 } */
 #nav a{
     text-decoration: none;
-    color: #e4e4e4;
+    color: white;
     padding: 3px;
     font-size: 11px;
 }
@@ -62,7 +68,6 @@ body{
     /* height: fit-content; */
     max-height: 100vh;
     padding-bottom: 145px;
-    overflow-y: auto;
     margin-right: 5%;
     margin-left: 5%;
 }
@@ -93,7 +98,6 @@ body{
 }
 .chat-container .chat.incoming{
     background: var(--incoming-chat-bg);
-    /* border: 1px solid black; */
     border-radius: 10px;
 }
 
@@ -133,7 +137,7 @@ span i{
     user-select: none;
     cursor: pointer;
 }
-.typing-animation{
+/* .typing-animation{
     display: flex;
     padding-left: 55px;
 }
@@ -157,7 +161,7 @@ span i{
     50%{
         opacity: 0.2;
     }
-}
+} */
 
 
 .typing-container, form{
@@ -202,6 +206,7 @@ span i{
     color: #3e3e3e;
 }
 .typing-textarea span{
+    /* overflow: hidden; */
     position: absolute;
     right: 0;
     bottom: 1.5px;
@@ -215,9 +220,11 @@ span i{
 } */
 
 .typing-textarea span i{
+    /* overflow: hidden; */
     font-size: 20px;
-    color: #aaaaaa;
+    color: white;
     transition: all 0.5s;
+    
 }
 .typing-textarea span i:hover{
     font-size: 30px;
@@ -233,13 +240,13 @@ span i{
     justify-content: center;
     color: var(--icon-color);
 }
-.typing-controls span{
+/* .typing-controls span{
     height: 40px;
     width: 40px;
     font-size: 20px;
     color: rgb(96, 0, 0);
     background-color: var(--incoming-chat-bg);
-    /* border: 1px solid rgb(0, 0, 0); */
+    /* border: 1px solid rgb(0, 0, 0);
     border-radius: 50%;
     margin-left: 40px;
     transition: all 0.3s;
@@ -268,7 +275,7 @@ span i{
 .typing-container .proud img{
     width: 20px;
     height: 20px;
-}
+} */
 
 .dark-mode {
     background: #ffffff; /* Dark background color */
@@ -319,4 +326,65 @@ span i{
     font-size: 25px;
     padding-top: 2px;
 
+}
+
+.home-question{
+    display: flex;
+    align-items: center;
+    margin: 0% 7%;
+    padding: 0px 40px;
+}
+
+.home-question > span{
+    padding-right: 15px;
+    font-size: 20px;
+}
+
+.home-text{
+    display: flex;
+    margin: 0% 7%;
+    padding: 45px 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.home-text > span {
+    padding-right: 15px;
+    font-size: 20px;
+}
+
+.home-h1{
+    line-height: 4vh;
+    font-family: Google Sans,Helvetica Neue,sans-serif;
+    letter-spacing: normal;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.home-h2{
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 32px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.home-p{
+    font-size: 20px;
+} 
+
+.home-text button{
+    background: rgb(255, 255, 255);
+    border: 0.883005px solid rgb(247 87 0);
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 32px 13px, rgba(0, 0, 0, 0.05) 0px 18px 11px, rgba(0, 0, 0, 0.09) 0px 8px 8px, rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 0px 0px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.home-text button > a{
+    text-decoration: none;
+    color: black;
 }

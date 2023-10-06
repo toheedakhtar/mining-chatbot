@@ -11,7 +11,6 @@
 # # import time
 
 
-
 # load_dotenv()
 
 # def get_text_from_pdf(pdf):
@@ -39,6 +38,7 @@
 #     return text_all
 
 # def answer(question):
+#     print("hii")
 #     files_dir = 'chatbot/docs/'    #data to train on (pdfs or text)
 #     text = get_text_from_all_files(files_dir)  
 
@@ -48,11 +48,13 @@
 
 #     embeddings = OpenAIEmbeddings()
 #     vector_text = FAISS.from_texts(text_chunks, embeddings)
+
 #     # time.sleep(4)
 
-#     llm = OpenAI()
-#     chain = load_qa_chain(llm, chain_type="stuff")
+#     # llm = OpenAI()
+#     # chain = load_qa_chain(llm, chain_type="stuff")
 
-#     docs = vector_text.similarity_search(question)
-#     response = chain.run(input_documents=docs, question=question)
+#     # docs = vector_text.similarity_search(question)
+#     # response = chain.run(input_documents=docs, question=question)
+#     response =question
 #     return response

@@ -8,40 +8,63 @@
     <link rel="stylesheet" href="{% static 'chatbot/css/main.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <title>Mining-GPT</title>
-</head>
+</head> 
 <body class="light-mode">
-    <div id="nav">
-        <div class="name">
-            <h1>MINING-GPT</h1>
-        </div>
-        <div class="links">
-            <a href="">PURPOSE</a>
-            <a href="">HELP</a>
-            <a href=""><i class="ri-sun-line"></i></a>
-        </div>
-    </div>
 
-
-    <div>
-        <form method="post" class="typing-container" action="{% url 'get_query' %}">
-            {% csrf_token %}
-        <div class="typing-content">
-            <div class="typing-textarea">
-                <textarea id="chat-input" name="query" placeholder="Enter any Query here..." required></textarea>
-                <span id="send-btn" class="material-symbols-rounded"><button type="submit"><i class="ri-send-plane-2-fill"></i></button></span>
-            </div>
-            <div class="typing-controls">
-                <span id="delete-btn" class="material-symbols-rounded"><i class="ri-delete-bin-5-line"></i></span>
+    <span id="openNav" onclick="openSidebar()"><i class="ri-menu-line"></i></span>
+        <div id="nav">
+            <div class="links">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="">HELP</a>
+                <a href="{%url 'get_query' %}">CHAT</a>
+                <a><i class="ri-account-box-line"></i></a>
+                <a href="#" id="dark-mode-toggle"><i class="ri-sun-line"></i></a>
             </div>
         </div>
-        <div class="proud">
-            <p>MADE IN INDIA &nbsp;&nbsp;</p>
-            <img src="data:image/png;base64,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" alt="">
+        {% if user.is_authenticated%}
+    
+        <div id="mySidebar" class="sidebar">
+            <a href="#" onclick="closeSidebar()">&times;</a>
+            <a href="#">Chat 1</a>
+            <a href="#">Chat 2</a>
+            <a href="#">Chat 3</a>
+            <a href="#">Chat 4</a>
         </div>
-    </form>
-        
-    </div>
+        {%endif%}
 
+        <div class="home-question">
+            <span><i class="ri-user-4-fill"></i></span>
+            <span><p class="home-h2">About?</p></span>
+        </div>
+
+        <div class="home-text">
+            <span> <i class="ri-robot-2-line"></i></span>
+            <span>
+            <h1 class="home-h1">Mining-GPT</h1>
+            <h2 class="home-h2">A Chatbot for the Mining industry.</h2>
+            <p class="home-p">Have a question in your mind about the legeslation related to the mining industry?<br>Our chatbot has the perfect answer you are looking for.</p>
+            <br>
+            <p>Have Just ask.</p>
+            <button><a href="{% url 'logout' %}">Login</a></button>
+            <button><a href="{% url 'signup' %}">SignUp</a></button>
+            </span>
+        </div>
+
+  
+    
+    </div>
+    
 
 </body>
 </html>
+
+<script>
+    //sidebar
+    function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+    
+    function closeSidebar() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+</script>    
