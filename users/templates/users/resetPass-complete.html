@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+
+
+{% block body %}
+
+<div class="flex flex-col items-center font-mono text-xl font-bold m-8">
+
+    <h2 class="text-3xl m-5 mb-4">Password Reset Complete</h2>
+    <hr class="mb-4 w-[100vw]">
+    <p class="text-xs sm:text-xl text-center mb-4">Your password has been changed you can login with you new password now.</p>
+    <a href="{% url 'login' %}"><button class="button focus:outline-none text-white bg-lime-700 hover:bg-lime-500 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 mt-2 dark:focus:ring-lime-400">Login</button></a>
+
+</div>
+
+{% endblock %}

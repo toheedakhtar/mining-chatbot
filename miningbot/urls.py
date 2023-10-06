@@ -18,7 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 from chatbot import urls as chatbot_urls
 
+from django.contrib.auth import views as auth_views
+from users import views as users_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(chatbot_urls))
+    path('', include(chatbot_urls)),
+
+    path('signup/', users_views.signup , name='signup'),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html') , name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name="users/logout.html") , name='logout'),
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name='users/resetPassword.html') , name='reset_password'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/resetPassword_sent.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name= 'users/resetPass-form.html') , name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/resetPass-complete.html') , name='password_reset_complete'),
+
+
 ]

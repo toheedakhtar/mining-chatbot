@@ -1,0 +1,35 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Join the Family{% endblock title %}
+{% block body %} 
+
+    <div class="m-5 p-3 space-y-3 ">
+
+        <div class="sign-up form ">
+        <h1 class="font-mono text-center mb-5 text-3xl font-bold ">Sign up</h1>
+        <hr class="mb-4">
+
+        <div class="signup flex flex-col items-center">
+        <form method="post" class=" font-mono text-xl font-bold ">
+            
+            {% csrf_token %}
+            {{ form}}
+
+        <button class="focus:outline-none text-white bg-cyan-700 hover:bg-cyan-500 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-3 mt-2 dark:focus:ring-lime-400" type="submit" >Submit</button>
+        </form>
+        </div>
+        <hr class="mb-4">
+        
+        <div class="flex flex-col items-center">
+        <h3 class="font-mono text-center">Already Joined? Login!</h3>
+        <a href="{% url 'login' %}" style="text-decoration: none; color: white;">
+        <button class="button focus:outline-none text-white bg-lime-700 hover:bg-lime-500 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 mt-2 dark:focus:ring-lime-400" value="login">
+            Login
+        </button></a>
+        </div>
+        
+        </div>
+    </div>
+
+
+{% endblock %}

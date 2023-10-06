@@ -1,0 +1,10 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="flex flex-col items-center mt-16 ">
+    <h3 class="font-bold font-mono text-2xl">You are Logged Out!</h3>
+    <!-- <h5>Login Again</h5> -->
+    <button class="flex justify-center focus:outline-none text-white bg-lime-700 hover:bg-lime-500 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 mt-2 dark:focus:ring-lime-400"><a href="{% url  'login' %}">Login Again</a></button>
+    </div>
+{% endblock %}

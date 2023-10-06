@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <title>aitrustbar</title>
+
+</head>
+<body class="bg-neutral-900 dark:text-white m-0 p-0">
+    <nav class="bg-amber-400 mx-0 ">
+        <ul class="flex space-x-2 p-3 font-medium text-black justify-end mx-3 font-mono font-semibold">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            {% if user.is_authenticated%}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {%block body%}
+
+    {%endblock%}
+</body>
+
+</html>
